@@ -1,0 +1,52 @@
+<p>practice works!</p>
+<button (click)="addValue()">Add New Value To Service</button>
+
+<div class="form-area">
+    <form #f="ngForm" (submit)="onSubmit(f)">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" minlength="25" placeholder="name" name="fullName" required ngModel #fullName='ngModel' class="form-control"/>
+        
+            <div class="alert alert-danger" *ngIf="fullName.touched && fullName.invalid">Fullname is required.</div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" placeholder="email" name="email" ngModel class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <textarea placeholder="Address" name="address" ngModel class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn">Add</button>
+        </div>        
+            
+        
+   
+</form>
+</div>
+
+<div class="form-area">
+    <form [formGroup]="form" (ngSubmit)="onSubmits()">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" minlength="25" placeholder="name" name="fullName" required formControlName='fullName' class="form-control"/>
+            
+            <div class="alert alert-danger" *ngIf="fullName.touched && fullName.invalid">Fullname is required.</div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" placeholder="email" name="email" formControlName='email'  class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <textarea placeholder="Address" name="address" formControlName='address' class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn">Add</button>
+        </div>        
+            
+        
+   
+</form>
+</div>

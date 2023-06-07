@@ -1,0 +1,39 @@
+<p>{{title}}</p>
+<h2 class="changecolor">{{fromParent}}</h2>
+<app-post-list [postParent]="postParentmessage"></app-post-list>
+<button (click)='sendMessage()'>Click</button>
+<button ></button>
+<input type="text" (keyup.enter)="onKeyUp(username.value)" #username>
+<p>{{messageKeyup}}</p>
+<input type="text" [(ngModel)]="messageKeyup">
+
+
+<input type="text" [(ngModel)]="postTitle" placeholder="Post Title"/>
+<input type="text" [(ngModel)]="postDescription" placeholder="Post Description"/>
+<input type="text" [(ngModel)]="imgSrc" placeholder="Post Image"/>
+<img src="{{imgSrc}}"  />
+<p >{{postTitle}}</p>
+<p >{{postDescription}}</p>
+
+<ul>
+    <li *ngFor="let post of postArr">{{post}}</li>
+</ul>
+<!-- <div *ngIf="postObject1.length>0"> -->
+    <!-- <div *ngIf="postObject1.length>0; else noData"> -->
+        <div *ngIf="postObject1.length>0; then showList else noData"></div>
+        <ng-template #showList>
+<ul>
+    <li *ngFor="let post of postObject">{{post.postTitles}}</li>
+</ul>
+</ng-template>
+<!-- <div *ngIf="postObject1.length == 0"> -->
+    <ng-template #noData>
+    There no record
+</ng-template>
+
+<h1 [ngStyle]="{color:isActive?'red':'black',textTransform:isActive?'uppercase':'lowercase'}">Check Css</h1>
+
+<h3>Post From Post Component</h3>
+<ul>
+    <li *ngFor="let post of posts;let i=index">{{post.postTitles}}</li>
+</ul>
